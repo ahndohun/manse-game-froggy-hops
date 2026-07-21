@@ -1,0 +1,1 @@
+export const GAME_CONFIG = {"slug":"froggy-hops","title":"개구리 폴짝 (Froggy Hops)","summary":"Squat down and hop like a frog across the lily pads.","creator":"Manse","sourceUrl":"https://github.com/replace-me/froggy-hops","locale":"ko"} as const;
