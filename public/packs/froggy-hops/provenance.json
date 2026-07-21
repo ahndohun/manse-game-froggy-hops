@@ -2,6 +2,23 @@
   "schemaVersion": 1,
   "assets": [
     {
+      "assetId": "pond-hero",
+      "path": "assets/images/pond-hero.png",
+      "license": {
+        "spdxId": "MIT",
+        "name": "MIT License",
+        "url": "https://spdx.org/licenses/MIT.html",
+        "attribution": "Generated for Manse — Froggy Hops"
+      },
+      "provenance": {
+        "kind": "generated",
+        "tool": "OpenAI image generation (built-in image_gen.imagegen tool)",
+        "model": "Not reported by the built-in image_gen response",
+        "prompt": "Create an original 16:9 horizontal hero illustration for a family-friendly active game called Froggy Hops. Show one cheerful, original little green frog springing between broad lily pads across a calm pond, with a clear crouch-to-hop arc suggested by ripples and curved reeds. Premium textured storybook editorial style with soft gouache grain and crisp readable shapes. Palette: deep teal water, lily green leaves, soft aqua reflections, and a small warm coral accent. Keep the frog and nearest lily pads centered for responsive cropping. Playful, calm, energetic, and not babyish. No people or children. No words, letters, numbers, signs, logos, brands, UI elements, border, watermark, copyrighted characters, danger, or photorealism.",
+        "generatedAt": "2026-07-21T19:05:37Z"
+      }
+    },
+    {
       "assetId": "success-tone",
       "path": "assets/audio/success.wav",
       "license": {

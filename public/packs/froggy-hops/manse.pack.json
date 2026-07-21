@@ -5,18 +5,27 @@
     "title": [
       {
         "locale": "ko",
-        "text": "개구리 폴짝 (Froggy Hops)"
+        "text": "개구리 폴짝"
+      },
+      {
+        "locale": "en",
+        "text": "Froggy Hops"
       }
     ],
     "summary": [
       {
         "locale": "ko",
-        "text": "Squat down and hop like a frog across the lily pads."
+        "text": "몸을 낮췄다가 개구리처럼 폴짝 뛰어 연잎을 건너세요."
+      },
+      {
+        "locale": "en",
+        "text": "Squat down, spring up like a frog, and hop across the lily pads."
       }
     ],
-    "theme": "A pond where a little frog hops across lily pads with deep squats",
+    "theme": "A calm deep-teal pond where a little frog crosses lily pads with gentle squats / 부드러운 스쿼트로 연잎을 건너는 잔잔한 청록빛 연못",
     "locales": [
-      "ko"
+      "ko",
+      "en"
     ],
     "ageBands": [
       "4-5",
@@ -44,11 +53,15 @@
       "name": [
         {
           "locale": "ko",
-          "text": "Guide"
+          "text": "연못 길잡이"
+        },
+        {
+          "locale": "en",
+          "text": "Pond Guide"
         }
       ],
       "artAssetId": null,
-      "description": "A neutral runtime guide rendered without a character asset."
+      "description": "A friendly pond guide rendered without a character asset / 캐릭터 이미지 없이 표시되는 다정한 연못 길잡이."
     }
   ],
   "entrySceneId": "welcome",
@@ -60,6 +73,11 @@
         "items": [
           {
             "locale": "ko",
+            "text": "개굴개굴! 연못 건너편까지 연잎들이 기다리고 있어요.",
+            "audioAssetId": null
+          },
+          {
+            "locale": "en",
             "text": "Ribbit! The lily pads are waiting across the pond.",
             "audioAssetId": null
           }
@@ -69,7 +87,7 @@
       "demo": null,
       "challenge": null,
       "learning": null,
-      "artAssetId": null,
+      "artAssetId": "pond-hero",
       "energy": "calm",
       "terminal": false,
       "transitions": [
@@ -87,7 +105,12 @@
         "items": [
           {
             "locale": "ko",
-            "text": "Squat down low like a frog, then pop back up to hop to the next lily pad.",
+            "text": "개구리처럼 천천히 몸을 낮췄다가 다시 일어나 다음 연잎으로 폴짝 뛰어요.",
+            "audioAssetId": null
+          },
+          {
+            "locale": "en",
+            "text": "Crouch gently like a frog, then rise to hop to the next lily pad.",
             "audioAssetId": null
           }
         ],
@@ -109,7 +132,7 @@
         "kind": "none",
         "payload": []
       },
-      "artAssetId": null,
+      "artAssetId": "pond-hero",
       "energy": "medium",
       "terminal": false,
       "transitions": [
@@ -139,7 +162,12 @@
         "items": [
           {
             "locale": "ko",
-            "text": "Squat down low like a frog, then pop back up to hop to the next lily pad.",
+            "text": "좋아요! 편안한 만큼 몸을 낮췄다가 일어나 다음 연잎으로 가 볼까요?",
+            "audioAssetId": null
+          },
+          {
+            "locale": "en",
+            "text": "Nice work! Crouch as far as feels comfortable, then rise for the next lily pad.",
             "audioAssetId": null
           }
         ],
@@ -161,7 +189,7 @@
         "kind": "none",
         "payload": []
       },
-      "artAssetId": null,
+      "artAssetId": "pond-hero",
       "energy": "medium",
       "terminal": false,
       "transitions": [
@@ -184,6 +212,11 @@
         "items": [
           {
             "locale": "ko",
+            "text": "연못을 모두 건넜어요! 개굴개굴, 신나는 폴짝 여행이었어요!",
+            "audioAssetId": null
+          },
+          {
+            "locale": "en",
             "text": "You hopped across the whole pond! Ribbit, ribbit, hooray!",
             "audioAssetId": null
           }
@@ -193,7 +226,7 @@
       "demo": null,
       "challenge": null,
       "learning": null,
-      "artAssetId": null,
+      "artAssetId": "pond-hero",
       "energy": "calm",
       "terminal": true,
       "transitions": []
@@ -208,7 +241,36 @@
     "maxHighEnergyMs": 60000
   },
   "assets": {
-    "images": [],
+    "images": [
+      {
+        "id": "pond-hero",
+        "path": "assets/images/pond-hero.png",
+        "mediaType": "image/png",
+        "alt": [
+          {
+            "locale": "ko",
+            "text": "잔잔한 청록빛 연못 위에서 연잎 사이를 폴짝 뛰는 초록 개구리"
+          },
+          {
+            "locale": "en",
+            "text": "A green frog hopping between lily pads on a calm deep-teal pond"
+          }
+        ],
+        "license": {
+          "spdxId": "MIT",
+          "name": "MIT License",
+          "url": "https://spdx.org/licenses/MIT.html",
+          "attribution": "Generated for Manse — Froggy Hops"
+        },
+        "provenance": {
+          "kind": "generated",
+          "tool": "OpenAI image generation (built-in image_gen.imagegen tool)",
+          "model": "Not reported by the built-in image_gen response",
+          "prompt": "Create an original 16:9 horizontal hero illustration for a family-friendly active game called Froggy Hops. Show one cheerful, original little green frog springing between broad lily pads across a calm pond, with a clear crouch-to-hop arc suggested by ripples and curved reeds. Premium textured storybook editorial style with soft gouache grain and crisp readable shapes. Palette: deep teal water, lily green leaves, soft aqua reflections, and a small warm coral accent. Keep the frog and nearest lily pads centered for responsive cropping. Playful, calm, energetic, and not babyish. No people or children. No words, letters, numbers, signs, logos, brands, UI elements, border, watermark, copyrighted characters, danger, or photorealism.",
+          "generatedAt": "2026-07-21T19:05:37Z"
+        }
+      }
+    ],
     "audio": [
       {
         "id": "success-tone",

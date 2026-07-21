@@ -89,7 +89,13 @@ function driveSession(pack, frames) {
 /** Isolate one scene of the real pack: intro -> that scene -> terminal. */
 function harnessPackFor(sceneId) {
   const scene = packJson.scenes.find((candidate) => candidate.id === sceneId);
-  const narration = { items: [{ locale: "ko", text: "준비!", audioAssetId: null }], captionDefaultOn: true };
+  const narration = {
+    items: [
+      { locale: "ko", text: "준비!", audioAssetId: null },
+      { locale: "en", text: "Ready!", audioAssetId: null },
+    ],
+    captionDefaultOn: true,
+  };
   return parseEpisodePack({
     ...packJson,
     entrySceneId: "harness-intro",
@@ -146,6 +152,16 @@ test("pack parses through the shipped @manse/schema validator", () => {
   const pack = parseEpisodePack(packJson);
   assert.equal(pack.scenes.length, packJson.scenes.length);
   assert.equal(challengeScenes.length > 0, true, "expected at least one challenge scene");
+});
+
+test("pack validator rejects an intentionally incomplete locale fixture", () => {
+  const invalidPack = structuredClone(packJson);
+  invalidPack.meta.summary = invalidPack.meta.summary.filter(({ locale }) => locale !== "en");
+  assert.throws(
+    () => parseEpisodePack(invalidPack),
+    /Missing declared locale 'en'/,
+    "declared locales must be complete across localized pack fields",
+  );
 });
 
 for (const scene of challengeScenes) {
