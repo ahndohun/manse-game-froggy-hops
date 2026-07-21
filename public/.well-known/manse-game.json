@@ -5,22 +5,31 @@
   "title": [
     {
       "locale": "ko",
-      "text": "개구리 폴짝 (Froggy Hops)"
+      "text": "개구리 폴짝"
+    },
+    {
+      "locale": "en",
+      "text": "Froggy Hops"
     }
   ],
   "summary": [
     {
       "locale": "ko",
+      "text": "몸을 낮췄다가 개구리처럼 뛰어 연잎을 건너세요."
+    },
+    {
+      "locale": "en",
       "text": "Squat down and hop like a frog across the lily pads."
     }
   ],
   "creator": "Manse",
   "energy": "gentle",
-  "gameUrl": "https://froggy-hops.example.invalid/",
+  "gameUrl": "https://froggy-hops.ran584000.chatgpt.site/",
   "sourceUrl": "https://github.com/ahndohun/manse-game-froggy-hops",
   "engineVersion": "0.2.0",
   "locales": [
-    "ko"
+    "ko",
+    "en"
   ],
   "ageRange": {
     "min": 4,
@@ -37,12 +46,16 @@
     "audioCues": true
   },
   "thumbnail": {
-    "url": "https://froggy-hops.example.invalid/thumbnail.png",
+    "url": "https://froggy-hops.ran584000.chatgpt.site/thumbnail.png",
     "mediaType": "image/png",
     "alt": [
       {
         "locale": "ko",
-        "text": "Abstract motion-game artwork for 개구리 폴짝 (Froggy Hops)"
+        "text": "개구리 폴짝 모션 게임 아트워크"
+      },
+      {
+        "locale": "en",
+        "text": "Motion-game artwork for Froggy Hops"
       }
     ]
   },
@@ -55,7 +68,7 @@
   "contentProvenance": {
     "hasGeneratedAssets": false,
     "hasThirdPartyAssets": true,
-    "provenanceUrl": "https://froggy-hops.example.invalid/asset-provenance.json"
+    "provenanceUrl": "https://froggy-hops.ran584000.chatgpt.site/asset-provenance.json"
   },
   "permissions": {
     "camera": true,
