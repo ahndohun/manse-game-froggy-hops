@@ -3,11 +3,15 @@
   "assets": [
     {
       "path": "/thumbnail.png",
-      "origin": "original-procedural",
-      "creator": "Manse",
-      "createdAt": "2026-07-21T14:34:13.135Z",
+      "origin": "generated",
+      "tool": "OpenAI image generation (built-in image_gen.imagegen tool); center-cropped and resized with macOS sips",
+      "model": "Not reported by the built-in image_gen response",
+      "prompt": "Create an original 16:9 horizontal hero illustration for a family-friendly active game called Froggy Hops. Show one cheerful, original little green frog springing between broad lily pads across a calm pond, with a clear crouch-to-hop arc suggested by ripples and curved reeds. Premium textured storybook editorial style with soft gouache grain and crisp readable shapes. Palette: deep teal water, lily green leaves, soft aqua reflections, and a small warm coral accent. Keep the frog and nearest lily pads centered for responsive cropping. Playful, calm, energetic, and not babyish. No people or children. No words, letters, numbers, signs, logos, brands, UI elements, border, watermark, copyrighted characters, danger, or photorealism.",
+      "generatedAt": "2026-07-21T19:05:37Z",
+      "derivedFrom": "/packs/froggy-hops/assets/images/pond-hero.png",
+      "transformation": "Center-cropped from 1672x941 to 1672x878 and resized to 1200x630.",
       "license": "MIT",
-      "sha256": "c458052c3dbf05f85536f886ad1de83c27829269205e5656e9f57bf5b6b376f4"
+      "sha256": "b8be57b61c190ba5a9c69a48e81891ecb841c6af763e0ac21c4c4c3baae24b8b"
     },
     {
       "path": "/packs/froggy-hops/assets/images/pond-hero.png",
