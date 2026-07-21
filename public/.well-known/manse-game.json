@@ -17,7 +17,7 @@
   "creator": "Manse",
   "energy": "gentle",
   "gameUrl": "https://froggy-hops.example.invalid/",
-  "sourceUrl": "https://github.com/replace-me/froggy-hops",
+  "sourceUrl": "https://github.com/ahndohun/manse-game-froggy-hops",
   "engineVersion": "0.2.0",
   "locales": [
     "ko"
