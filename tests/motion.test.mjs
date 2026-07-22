@@ -194,16 +194,20 @@ for (const scene of challengeScenes) {
 
 test("full pack: child motion completes the real scene flow end-to-end", () => {
   const first = challengeScenes[0];
-  const script = scriptForChallenge(first.challenge);
+  // Scene transitions consume a neutral frame before the next evaluator is active,
+  // so include one extra complete movement cycle per authored hand-off.
+  const totalRepetitions = challengeScenes.reduce((total, scene) => total + scene.challenge.repetitions, 0) + challengeScenes.length;
+  const script = childSquatScript(totalRepetitions);
   const { events } = driveSession(parseEpisodePack(packJson), synthesizePoseFrames(script));
 
   const visited = events
     .filter(({ event }) => event.type === "scene-changed")
     .map(({ event }) => event.sceneId);
-  assert.deepEqual(visited, [packJson.entrySceneId, first.id, "complete"]);
+  assert.deepEqual(visited, [packJson.entrySceneId, ...challengeScenes.map((scene) => scene.id), "complete"]);
   const at = successAt(events);
   assert.notEqual(at, null);
-  assert.equal(at - SCENE_START_MS <= first.challenge.timeBudgetMs, true);
+  const totalBudgetMs = challengeScenes.reduce((total, scene) => total + scene.challenge.timeBudgetMs, 0);
+  assert.equal(at - SCENE_START_MS <= totalBudgetMs, true);
   assert.equal(events.at(-1)?.event.type, "complete");
   console.log(
     `    [motion] full pack: success in scene '${first.id}' at ${at - SCENE_START_MS}ms, `

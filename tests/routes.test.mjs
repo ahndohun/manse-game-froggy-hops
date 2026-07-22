@@ -36,6 +36,17 @@ test("interactive controls do not leak pointer presses into the game stage", asy
   assert.equal(capture > escape, true, "the control escape must run before pointer capture");
 });
 
+test("pointer play installs a game-specific full-body squat adapter", async () => {
+  const clientSource = await readFile("app/GameClient.tsx", "utf8");
+  const providerSource = await readFile("app/froggy-pointer-provider.ts", "utf8");
+  assert.match(clientSource, /providerFactory:\s*FROGGY_PROVIDER_FACTORY/);
+  assert.match(providerSource, /left_hip:\s*\{\s*dy:\s*0\.1\s*\}/);
+  assert.match(providerSource, /left_knee:\s*\{\s*dx:\s*0\.06/);
+  assert.match(providerSource, /right_knee:\s*\{\s*dx:\s*-0\.06/);
+  assert.match(providerSource, /options\.kind === "simulated"/);
+  assert.match(providerSource, /createDefaultPoseProvider\(options\)/);
+});
+
 test("generated hero provenance matches the shipped bytes", async () => {
   const assetPath = "public/packs/froggy-hops/assets/images/pond-hero.png";
   const asset = await readFile(assetPath);

@@ -3,7 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createMansePlayer, type MansePlayer, type PlayerSnapshot, type ProviderKind } from "@manse/runtime-web";
 import { DEFAULT_LOCALE, GAME_CONFIG, getBrowserLocale, UI_COPY, type GameLocale } from "./game-config";
-import { FROGGY_RENDERER } from "./game-renderer";
+import { createFroggyRendererFactory } from "./game-renderer";
+import { FROGGY_PROVIDER_FACTORY } from "./froggy-pointer-provider";
 
 const PACK_URL = `/packs/${GAME_CONFIG.slug}/manse.pack.json`;
 const EMPTY: Pick<PlayerSnapshot, "phase" | "provider" | "tier" | "renderer" | "cameraActive" | "targetProgress" | "caption"> = {
@@ -65,7 +66,8 @@ export function GameClient() {
       container,
       locale,
       provider,
-      rendererFactory: FROGGY_RENDERER,
+      providerFactory: FROGGY_PROVIDER_FACTORY,
+      rendererFactory: createFroggyRendererFactory(locale),
       captions: true,
       reducedStimulation: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
       onEvent: (event) => {
@@ -160,7 +162,7 @@ export function GameClient() {
       <section className="player-shell" aria-label={copy.player.label}>
         <div className="player-bar">
           <span><i className={error === null ? "status-dot" : "status-dot status-error"} aria-hidden="true" /> {status}</span>
-          <span>{snapshot.renderer ?? copy.player.runtimeReady} · {copy.player.tier} {snapshot.tier}</span>
+          <span>{copy.player.mission}</span>
         </div>
         <div
           className="stage"

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "identity": {
+    "fantasy": "Become a brave little pond frog and cross the water one glowing lily-pad hop at a time.",
+    "playerVerb": "Crouch gently and rise to spring the frog toward the next lily pad.",
+    "targetMetaphor": "A trail of broad lily pads that wake, glow, and ripple when the frog lands."
+  },
+  "beats": [
+    { "id": "round-one", "purpose": "Learn two slow, forgiving hops near the pond edge." },
+    { "id": "round-two", "purpose": "Cross three deeper-water pads with a slightly fuller crouch." },
+    { "id": "round-three", "purpose": "Finish four lively hops and reach the glowing far bank." }
+  ],
+  "presenter": {
+    "source": "app/game-renderer.ts",
+    "themedEntities": ["painted pond and distant bank", "multi-state lily-pad trail", "crouching and airborne frog avatar", "foreground reeds and water ripples"],
+    "reactiveStates": ["waiting lily pad", "active glowing landing pad", "visited bright lily pad", "crouched frog", "airborne frog", "far-bank celebration"],
+    "continuousFeedback": "The frog compresses with the squat state, arcs during cooldown, advances to the next pad, and updates a localized trail meter every frame.",
+    "scoreAndResolution": "Three escalating pond sections show room-readable hop totals and finish with a localized full-field pond-crossed celebration."
+  },
+  "qualityGates": {
+    "themedEntitiesInPlay": true,
+    "threeReactiveStates": true,
+    "continuousInputFeedback": true,
+    "authoredEscalation": true,
+    "scoreAndResolution": true,
+    "threeGameplaySounds": true,
+    "noDebugChrome": true,
+    "cameraSimulatorParity": true,
+    "reducedMotionVerified": true
+  },
+  "evidence": {
+    "gameplayScreenshot": "evidence/froggy-hops-gameplay.png",
+    "completionScreenshot": "evidence/froggy-hops-complete.png",
+    "playtestNotes": "evidence/playtest-notes.md"
+  }
+}

@@ -119,13 +119,13 @@
       "demo": null,
       "challenge": {
         "type": "squat",
-        "repetitions": 6,
-        "depthRatio": 0.2,
-        "kneeAngleMaxDeg": 140,
+        "repetitions": 2,
+        "depthRatio": 0.16,
+        "kneeAngleMaxDeg": 145,
         "holdMs": 0,
-        "cooldownMs": 700,
-        "timeBudgetMs": 112000,
-        "successAudioId": "success-tone",
+        "cooldownMs": 800,
+        "timeBudgetMs": 45000,
+        "successAudioId": "ready-tone",
         "encourageAudioId": "encourage-tone"
       },
       "learning": {
@@ -138,7 +138,7 @@
       "transitions": [
         {
           "on": "success",
-          "to": "complete",
+          "to": "round-two",
           "adapt": null
         },
         {
@@ -176,12 +176,69 @@
       "demo": null,
       "challenge": {
         "type": "squat",
-        "repetitions": 6,
-        "depthRatio": 0.2,
-        "kneeAngleMaxDeg": 140,
+        "repetitions": 3,
+        "depthRatio": 0.19,
+        "kneeAngleMaxDeg": 142,
         "holdMs": 0,
         "cooldownMs": 700,
-        "timeBudgetMs": 112000,
+        "timeBudgetMs": 60000,
+        "successAudioId": "success-tone",
+        "encourageAudioId": "encourage-tone"
+      },
+      "learning": {
+        "kind": "none",
+        "payload": []
+      },
+      "artAssetId": "pond-hero",
+      "energy": "medium",
+      "terminal": false,
+      "transitions": [
+        {
+          "on": "success",
+          "to": "round-three",
+          "adapt": null
+        },
+        {
+          "on": "struggle",
+          "to": "round-three",
+          "adapt": {
+            "targetScaleMul": 1,
+            "dwellMsMul": 1,
+            "countDelta": 0,
+            "timeBudgetMul": 1.2,
+            "repetitionsDelta": -1,
+            "toleranceMul": 1.15
+          }
+        }
+      ]
+    },
+    {
+      "id": "round-three",
+      "kind": "challenge",
+      "narration": {
+        "items": [
+          {
+            "locale": "ko",
+            "text": "마지막 연잎들이에요! 몸을 낮췄다가 힘차고 가볍게 반대편 둑까지 폴짝 가요.",
+            "audioAssetId": null
+          },
+          {
+            "locale": "en",
+            "text": "Final lily pads! Crouch, then spring lightly all the way to the far bank.",
+            "audioAssetId": null
+          }
+        ],
+        "captionDefaultOn": true
+      },
+      "demo": null,
+      "challenge": {
+        "type": "squat",
+        "repetitions": 4,
+        "depthRatio": 0.21,
+        "kneeAngleMaxDeg": 138,
+        "holdMs": 0,
+        "cooldownMs": 650,
+        "timeBudgetMs": 76000,
         "successAudioId": "success-tone",
         "encourageAudioId": "encourage-tone"
       },
@@ -306,6 +363,24 @@
           "kind": "original",
           "creator": "Manse",
           "createdAt": "2026-07-21T14:34:13.135Z"
+        }
+      },
+      {
+        "id": "ready-tone",
+        "path": "assets/audio/ready.wav",
+        "mediaType": "audio/wav",
+        "locale": null,
+        "transcript": "",
+        "license": {
+          "spdxId": "MIT",
+          "name": "MIT License",
+          "url": "https://spdx.org/licenses/MIT.html",
+          "attribution": "Manse — Froggy Hops ready ripple"
+        },
+        "provenance": {
+          "kind": "original",
+          "creator": "Manse",
+          "createdAt": "2026-07-22T01:10:00.000Z"
         }
       }
     ],

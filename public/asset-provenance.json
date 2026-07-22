@@ -40,6 +40,15 @@
       "sha256": "9d9fc8fa481dfb8bbefc91c38f393f2d24cc02e35bd4bea1068d4a70be429624"
     },
     {
+      "path": "/packs/froggy-hops/assets/audio/ready.wav",
+      "origin": "original-procedural",
+      "creator": "Manse",
+      "createdAt": "2026-07-22T01:10:00.000Z",
+      "generator": "scripts/generate-ready-tone.mjs",
+      "license": "MIT",
+      "sha256": "94d32043d713d040176d3392d3df4cbe74aae66a9110aa25ca60ce7d54a6f58f"
+    },
+    {
       "path": "/models/pose_landmarker_lite.task",
       "origin": "third-party",
       "source": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/latest/pose_landmarker_lite.task",
