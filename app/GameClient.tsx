@@ -1,21 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { createDefaultRenderer, createMansePlayer, type MansePlayer, type PlayerSnapshot, type ProviderKind, type RendererFactory } from "@manse/runtime-web";
+import { createMansePlayer, type MansePlayer, type PlayerSnapshot, type ProviderKind } from "@manse/runtime-web";
 import { DEFAULT_LOCALE, GAME_CONFIG, getBrowserLocale, UI_COPY, type GameLocale } from "./game-config";
+import { FROGGY_RENDERER } from "./game-renderer";
 
 const PACK_URL = `/packs/${GAME_CONFIG.slug}/manse.pack.json`;
-const THEMED_RENDERER: RendererFactory = (options) => {
-  const renderer = createDefaultRenderer(options);
-  Object.assign(renderer.element.style, {
-    backgroundImage: "linear-gradient(rgba(4,31,35,.08), rgba(3,24,34,.34)), url('/packs/froggy-hops/assets/images/pond-hero.png')",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-  });
-  const cameraSurface = renderer.element.firstElementChild as HTMLElement | null;
-  if (cameraSurface?.tagName === "CANVAS") cameraSurface.style.opacity = "0.42";
-  return renderer;
-};
 const EMPTY: Pick<PlayerSnapshot, "phase" | "provider" | "tier" | "renderer" | "cameraActive" | "targetProgress" | "caption"> = {
   phase: "idle",
   provider: "simulated",
@@ -75,7 +65,7 @@ export function GameClient() {
       container,
       locale,
       provider,
-      rendererFactory: THEMED_RENDERER,
+      rendererFactory: FROGGY_RENDERER,
       captions: true,
       reducedStimulation: window.matchMedia("(prefers-reduced-motion: reduce)").matches,
       onEvent: (event) => {
