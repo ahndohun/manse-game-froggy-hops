@@ -59,6 +59,7 @@ export const UI_COPY = {
       switchCamera: "카메라로 전환",
       errorStart: "게임을 시작하지 못했습니다. 잠시 후 다시 시도해 주세요.",
       progressLabel: "진행도",
+      ready: "준비",
     },
   },
   en: {
@@ -94,6 +95,7 @@ export const UI_COPY = {
       switchCamera: "Switch to camera",
       errorStart: "The game could not start. Please try again.",
       progressLabel: "Progress",
+      ready: "Ready",
     },
   },
 } as const;

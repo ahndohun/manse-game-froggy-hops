@@ -28,8 +28,18 @@ test("server-renders the anonymous game start experience", async () => {
   assert.match(html, /class="manse-wordmark"[^>]*>MANSE<\/a>/);
   assert.doesNotMatch(html, /class="manse-wordmark"[^>]*>Manse<\/a>/);
   assert.match(html, />Browse games<\/a>/);
+  assert.match(html, /<strong aria-label="Progress">Ready<\/strong>/);
+  assert.doesNotMatch(html, /[—–]/);
   assert.doesNotMatch(html, /replace-me/);
   assert.doesNotMatch(html, /signin-with-chatgpt|<iframe\b|<form\b/i);
+});
+
+test("public copy has purposeful idle progress labels and no dash placeholders", async () => {
+  const configSource = await readFile("app/game-config.ts", "utf8");
+  const clientSource = await readFile("app/GameClient.tsx", "utf8");
+  assert.match(configSource, /ready:\s*"준비"/);
+  assert.match(configSource, /ready:\s*"Ready"/);
+  assert.doesNotMatch(`${configSource}\n${clientSource}`, /[—–]/);
 });
 
 test("platform shell stays one line at the 390x844 mobile viewport", async () => {

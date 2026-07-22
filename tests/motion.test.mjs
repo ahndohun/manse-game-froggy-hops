@@ -26,7 +26,7 @@ const challengeScenes = packJson.scenes.filter((scene) => scene.challenge !== nu
 /**
  * Full-depth squat shape reused from the engine's own replay fixture
  * (packages/runtime-web/fixtures/replay/squat.json): hips/shoulders/nose drop
- * 0.10 of frame height while the knees travel outward — the knee bend is what
+ * 0.10 of frame height while the knees travel outward; the knee bend is what
  * satisfies kneeAngleMaxDeg, a pure body drop never counts.
  */
 const SQUAT_BOTTOM_JOINTS = {
