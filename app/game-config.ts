@@ -2,6 +2,7 @@ export type GameLocale = "ko" | "en";
 
 export const DEFAULT_LOCALE: GameLocale = "en";
 export const SUPPORTED_LOCALES = ["ko", "en"] as const;
+export const SHOWCASE_URL = "https://manse-showcase.ran584000.chatgpt.site";
 
 export const GAME_CONFIG = {
   slug: "froggy-hops",
@@ -31,6 +32,8 @@ export const UI_COPY = {
       privacy: "카메라 영상은 이 기기에만 머물러요 · 계정 없음 · 분석 도구 없음",
       heroEyebrow: "천천히 앉고 · 가볍게 폴짝",
       languageLabel: "언어 선택",
+      platformLabel: "Manse 플랫폼",
+      browseGames: "게임 둘러보기",
       footer: "Manse가 만들었습니다. 불편하면 언제든 움직임을 멈추세요.",
       source: "소스 보기",
     },
@@ -64,6 +67,8 @@ export const UI_COPY = {
       privacy: "Camera stays on this device · no account · no analytics",
       heroEyebrow: "Crouch gently · hop lightly",
       languageLabel: "Choose language",
+      platformLabel: "Manse platform",
+      browseGames: "Browse games",
       footer: "Created by Manse. Stop whenever movement feels uncomfortable.",
       source: "View source",
     },

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createMansePlayer, type MansePlayer, type PlayerSnapshot, type ProviderKind } from "@manse/runtime-web";
-import { DEFAULT_LOCALE, GAME_CONFIG, getBrowserLocale, UI_COPY, type GameLocale } from "./game-config";
+import { DEFAULT_LOCALE, GAME_CONFIG, getBrowserLocale, SHOWCASE_URL, UI_COPY, type GameLocale } from "./game-config";
 import { createFroggyRendererFactory } from "./game-renderer";
 import { FROGGY_PROVIDER_FACTORY } from "./froggy-pointer-provider";
 
@@ -137,15 +137,21 @@ export function GameClient() {
             : copy.player.status.simulator;
 
   return (
-    <main>
-      <header className="game-hero">
-        <div className="hero-topline">
-          <p className="kicker">{copy.page.kicker}</p>
-          <div className="locale-switcher" role="group" aria-label={copy.page.languageLabel}>
-            <button type="button" className={locale === "ko" ? "active" : ""} onClick={() => selectLocale("ko")} aria-pressed={locale === "ko"}>KO</button>
-            <button type="button" className={locale === "en" ? "active" : ""} onClick={() => selectLocale("en")} aria-pressed={locale === "en"}>EN</button>
+    <>
+      <nav className="platform-shell" aria-label={copy.page.platformLabel}>
+        <div className="platform-shell-inner">
+          <a className="manse-wordmark" href={SHOWCASE_URL} aria-label={`${copy.page.browseGames}: MANSE`}>MANSE</a>
+          <div className="platform-actions">
+            <a className="browse-games" href={SHOWCASE_URL}>{copy.page.browseGames}</a>
+            <div className="locale-switcher" role="group" aria-label={copy.page.languageLabel}>
+              <button type="button" className={locale === "ko" ? "active" : ""} onClick={() => selectLocale("ko")} aria-pressed={locale === "ko"}>KO</button>
+              <button type="button" className={locale === "en" ? "active" : ""} onClick={() => selectLocale("en")} aria-pressed={locale === "en"}>EN</button>
+            </div>
           </div>
         </div>
+      </nav>
+      <main>
+      <header className="game-hero">
         <div className="hero-grid">
           <div className="hero-copy">
             <p className="hero-eyebrow">{copy.page.heroEyebrow}</p>
@@ -201,6 +207,7 @@ export function GameClient() {
         <p>{copy.page.footer}</p>
         <a href={GAME_CONFIG.sourceUrl}>{copy.page.source} <span aria-hidden="true">↗</span></a>
       </footer>
-    </main>
+      </main>
+    </>
   );
 }

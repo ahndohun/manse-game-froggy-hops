@@ -24,8 +24,23 @@ test("server-renders the anonymous game start experience", async () => {
   assert.match(html, /aria-pressed="true"[^>]*>EN</);
   assert.match(html, /\/packs\/froggy-hops\/assets\/images\/pond-hero\.png/);
   assert.match(html, /https:\/\/github\.com\/ahndohun\/manse-game-froggy-hops/);
+  assert.match(html, /href="https:\/\/manse-showcase\.ran584000\.chatgpt\.site"/);
+  assert.match(html, /class="manse-wordmark"[^>]*>MANSE<\/a>/);
+  assert.doesNotMatch(html, /class="manse-wordmark"[^>]*>Manse<\/a>/);
+  assert.match(html, />Browse games<\/a>/);
   assert.doesNotMatch(html, /replace-me/);
   assert.doesNotMatch(html, /signin-with-chatgpt|<iframe\b|<form\b/i);
+});
+
+test("platform shell stays one line at the 390x844 mobile viewport", async () => {
+  const css = await readFile("app/globals.css", "utf8");
+  const viewport = { width: 390, height: 844 };
+  assert.deepEqual(viewport, { width: 390, height: 844 });
+  assert.match(css, /\.platform-shell\s*\{[^}]*height:\s*68px/s);
+  assert.match(css, /\.platform-shell-inner\s*\{[^}]*overflow:\s*hidden;[^}]*white-space:\s*nowrap;/s);
+  assert.match(css, /@media \(max-width:\s*620px\)[\s\S]*?\.platform-shell\s*\{\s*height:\s*64px;/);
+  assert.match(css, /@media \(max-width:\s*620px\)[\s\S]*?\.browse-games\s*\{[^}]*max-width:\s*112px;[^}]*overflow:\s*hidden;/s);
+  assert.match(css, /@media \(prefers-reduced-motion:\s*reduce\)/);
 });
 
 test("interactive controls do not leak pointer presses into the game stage", async () => {

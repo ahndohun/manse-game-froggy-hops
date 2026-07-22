@@ -9,6 +9,9 @@
   --pond-foam: #f4fbf7;
   --pond-muted: #bed7d0;
   --pond-line: rgba(207, 240, 228, .22);
+  --manse-ink: #11120f;
+  --manse-paper: #f5f7ef;
+  --manse-lime: #b9ef5b;
 }
 
 * { box-sizing: border-box; }
@@ -32,19 +35,29 @@ button {
   color: #082d30;
   font-weight: 780;
   cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease, background-color 120ms ease, border-color 120ms ease;
 }
+button:not(:disabled):hover { filter: brightness(1.06); }
+button:not(:disabled):active { transform: translateY(1px); }
 button:disabled { cursor: wait; opacity: .6; }
 button.secondary { border: 1px solid rgba(244, 251, 247, .42); background: transparent; color: var(--pond-foam); }
 button:focus-visible, a:focus-visible { outline: 3px solid var(--pond-aqua); outline-offset: 4px; }
+.platform-shell a:focus-visible, .platform-shell button:focus-visible { outline-color: var(--manse-lime); outline-offset: 3px; }
 a { color: var(--pond-aqua); }
 main { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 
+.platform-shell { height: 68px; border-bottom: 1px solid rgba(245, 247, 239, .18); background: var(--manse-ink); color: var(--manse-paper); }
+.platform-shell-inner { width: min(1180px, calc(100% - 40px)); height: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; overflow: hidden; white-space: nowrap; }
+.manse-wordmark { flex: 0 0 auto; color: var(--manse-paper); font-size: 20px; font-weight: 880; letter-spacing: -.045em; line-height: 1; text-decoration: none; }
+.platform-actions { min-width: 0; display: flex; align-items: center; justify-content: flex-end; gap: 10px; overflow: hidden; }
+.browse-games { min-height: 38px; display: inline-flex; align-items: center; padding: 0 16px; border: 1px solid rgba(245, 247, 239, .38); border-radius: 999px; color: var(--manse-paper); font-size: 13px; font-weight: 760; line-height: 1; text-decoration: none; transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease; }
+.browse-games:hover { border-color: var(--manse-lime); background: rgba(185, 239, 91, .1); }
+.browse-games:active { transform: translateY(1px); }
+
 .game-hero { padding: 32px 0 52px; }
-.hero-topline { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
-.kicker { margin: 0; color: var(--pond-lily); font: 700 12px/1.2 ui-monospace, monospace; letter-spacing: .13em; text-transform: uppercase; }
-.locale-switcher { display: flex; gap: 3px; padding: 4px; border: 1px solid var(--pond-line); border-radius: 999px; background: rgba(3, 31, 36, .72); }
-.locale-switcher button { min-width: 48px; min-height: 36px; padding: 0 13px; background: transparent; color: var(--pond-muted); font: 750 11px/1 ui-monospace, monospace; letter-spacing: .08em; }
-.locale-switcher button.active { background: var(--pond-aqua); color: #073136; }
+.locale-switcher { flex: 0 0 auto; display: flex; gap: 3px; padding: 3px; border: 1px solid rgba(245, 247, 239, .28); border-radius: 999px; background: #20221d; }
+.locale-switcher button { min-width: 42px; min-height: 32px; padding: 0 10px; background: transparent; color: #c7cbbf; font: 750 11px/1 ui-monospace, monospace; letter-spacing: .08em; }
+.locale-switcher button.active { background: var(--manse-lime); color: var(--manse-ink); }
 .hero-grid { display: grid; grid-template-columns: minmax(0, .83fr) minmax(420px, 1.17fr); align-items: center; gap: clamp(28px, 5vw, 68px); }
 .hero-copy { position: relative; z-index: 1; }
 .hero-eyebrow { display: inline-flex; margin: 0 0 18px; padding: 7px 12px; border: 1px solid rgba(168, 217, 111, .42); border-radius: 999px; color: var(--pond-lily); background: rgba(168, 217, 111, .08); font-size: 12px; font-weight: 740; letter-spacing: .04em; }
@@ -83,8 +96,12 @@ footer a { font-weight: 700; text-underline-offset: 4px; }
 }
 @media (max-width: 620px) {
   main { width: min(100% - 20px, 1120px); }
+  .platform-shell { height: 64px; }
+  .platform-shell-inner { width: calc(100% - 20px); gap: 8px; }
+  .platform-actions { gap: 6px; }
+  .browse-games { max-width: 112px; min-height: 36px; padding-inline: 11px; overflow: hidden; font-size: 12px; text-overflow: ellipsis; }
+  .locale-switcher button { min-width: 34px; min-height: 30px; padding: 0 7px; }
   .game-hero { padding: 18px 0 38px; }
-  .hero-topline { margin-bottom: 18px; }
   .hero-grid { gap: 26px; }
   .hero-art { border-radius: 20px 20px 48px 20px; }
   .stage { height: 62vh; min-height: 420px; max-height: 600px; }
